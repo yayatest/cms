@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.rg.site.modules</groupId>
+    <artifactId>site-modules</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>org.rg.site.inter</groupId>
+  <artifactId>site-module-interface</artifactId>
+  <version>${site.version}</version>
+  <packaging>war</packaging>
+  <name>site-module-interface</name>
+  <description>site-module-interface</description>
+  
+  <dependencies>
+        <dependency>
+			<groupId>org.rg.site.common</groupId>
+			<artifactId>site-common</artifactId>
+			<version>${site.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.rg.site.cms</groupId>
+			<artifactId>site-cms</artifactId>
+			<version>${site.version}</version>
+		</dependency>
+  </dependencies>
+  <build>
+    <finalName>site-module-interface</finalName>
+  </build>
+</project>
