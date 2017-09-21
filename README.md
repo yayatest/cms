@@ -41,9 +41,9 @@
        2.1、site-common：系统基础服务抽象，包括entity、dao和service的基础抽象；
        2.2、site-org：用户权限模块服务实现；
        2.3、site-cms:资讯类模块服务实现；
-       2.4、site-module-admin：天梯后台web项目实现；
-       2.5、site-module-interface：天梯接口项目实现；
-       2.6、site-module-gateway：天梯前端自适应项目实现（是一个静态项目，调用site-module-interface获取数据）；
+       2.4、site-module-admin：网站后台web项目实现；
+       2.5、site-module-interface：网站接口项目实现；
+       2.6、site-module-gateway：网站前端自适应项目实现（是一个静态项目，调用site-module-interface获取数据）；
      3、使用说明：
       3.0、本项目JDK默认显示的是1.7，用户可以自行选择1.7+。
       3.1、数据库使用mysql，初始化脚本位于site-module-admin中的src/main/webapp/scripts/site_stage.sql。
