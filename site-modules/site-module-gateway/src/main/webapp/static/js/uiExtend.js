@@ -174,42 +174,61 @@ jc.uiExtend("footer", {
         html += '<div class="hidden-print">';
         html += '<div class="container">';
         html += '<div class="row">';
-        html += '<div class="col-md-5 col-sm-12">';
+        html += '<div class="col-md-4 col-sm-12">';
         html += '<h4>关于 本站</h4>';
-        html += '<p class="mt20"><i class="icon"></i>地址：江苏省如皋市</p>'
-        html += '<p><i class="icon"></i>邮箱：63045360@qq.com</p>'
+        html += '<p class="mt20"><i class="icon"></i>地址：江苏省如皋市宁海路248-1号</p>'
+        html += '<p><i class="icon"></i>座机：0513-87922966</p>'
+        html += '<p><i class="icon"></i>邮箱：zane_ma@126.com</p>'
         html += '</div>';
 
+        html += '<div class="col-md-2 col-sm-12">';
+        html += '<h4>友情链接</h4>';
+        html += '<ul class="list-unstyled">';
+        html += '<li><a href="http://www.huabeisai.cn/" target="_blank">华杯赛全国组委会官网</a></li>';
+        html += '<li><a href="http://www.huabeisai.com/" target="_blank">华杯赛北京组委会官网</a></li>';
+        html += '</ul>';
+        html += '</div>';
+/*
         html += '<div class="col-md-3 col-sm-12">';
         html += '<h4>网站链接</h4>';
         html += '<ul class="list-unstyled list-inline">';
-
-
         for (var i = 0, l = data.length; i < l; i++) {
             var curData = data[i];
             var curDataId = curData.id;
             var curDataName = curData.name;
             html += '<li><a onclick="window.router(\'menuAndTextlist\',{rootColumnId:\'' + (curDataId) + '\'},true)"  href="javascript:;" target="_blank">' + curDataName + '</a></li>';
         }
-       
-
-
         html += '</ul>';
+        html += '</div>';
+*/
+        html += '<div class="col-md-2 col-sm-12">';
+        html += '<div class="mt20 text-center">';
+        html += '<img style="width:120px;" src="../../static/images/code_1.jpg">';
+        html += '<p>绿阳教育微信公众号</p>';
+        html += '</div>';
         html += '</div>';
 
         html += '<div class="col-md-2 col-sm-12">';
         html += '<div class="mt20 text-center">';
-        html += '<img style="width:120px;" src="../../static/images/code_1.png">';
-        html += '<p>(微信打赏)</p>';
+        html += '<img style="width:120px;" src="../../static/images/code_2.jpg">';
+        html += '<p>绿阳教育微信订阅号</p>';
+        html += '</div>';
+        html += '</div>';
+
+        html += '<div class="col-md-2 col-sm-12">';
+        html += '<div class="mt20 text-center">';
+        html += '<img style="width:120px;" src="../../static/images/code_3.png">';
+        html += '<p>校长视野微信号</p>';
         html += '</div>';
         html += '</div>';
 
         html += '</div>';
         html += '</div>';
+
         html += '<div class="copy-right">';
-        html += '<span>© 2013-2017</span>';
-        html += '版权所有 如皋绿阳 Copyright © 1998 - 2017 Tencent. All Rights Reserved';
-        html += '<span>苏公网安备11010802014853</span>';
+        html += '<span>Copyright © Since 2017</span>';
+        html += '如皋市绿阳教育培训中心 All Rights Reserved';
+        html += '<span>苏ICP备   号</span>';
         html += '</div>';
         html += '</div>';
 
