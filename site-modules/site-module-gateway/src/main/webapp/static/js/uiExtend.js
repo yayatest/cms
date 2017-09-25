@@ -203,21 +203,21 @@ jc.uiExtend("footer", {
 */
         html += '<div class="col-md-2 col-sm-12">';
         html += '<div class="mt20 text-center">';
-        html += '<img style="width:120px;" src="../../static/images/code_1.jpg">';
+        html += '<img style="width:100px;" src="../../static/images/code_1.jpg">';
         html += '<p>绿阳教育微信公众号</p>';
         html += '</div>';
         html += '</div>';
 
         html += '<div class="col-md-2 col-sm-12">';
         html += '<div class="mt20 text-center">';
-        html += '<img style="width:120px;" src="../../static/images/code_2.jpg">';
+        html += '<img style="width:100px;" src="../../static/images/code_2.jpg">';
         html += '<p>绿阳教育微信订阅号</p>';
         html += '</div>';
         html += '</div>';
 
         html += '<div class="col-md-2 col-sm-12">';
         html += '<div class="mt20 text-center">';
-        html += '<img style="width:120px;" src="../../static/images/code_3.png">';
+        html += '<img style="width:100px;" src="../../static/images/code_3.png">';
         html += '<p>校长视野微信号</p>';
         html += '</div>';
         html += '</div>';
