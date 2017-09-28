@@ -303,9 +303,8 @@
 			'width' : 70,
 			'height' : 20,
 			'uploadLimit':3,
+			'progressData' : 'speed',
 			'onUploadSuccess' : function(file, data, response) {
-					alert("upload successfully");
-				alert("Data is " + data);
 					if(data != null){
 						var attachUrl = '${pageContext.request.contextPath}' + data;								
 						$("#attachURL").attr('src',attachUrl); 
