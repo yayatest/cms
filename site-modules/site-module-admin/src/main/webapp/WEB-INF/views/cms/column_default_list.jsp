@@ -41,7 +41,7 @@
                    </div>
                    <div class="f_main">
                             <div class="m_list" id="columnContent">
-	                            <c:forEach items="${rootCoulumnInfoList }" var="c">
+	                            <c:forEach items="${rootColumnInfoList }" var="c">
 	                                <div class="m_item 
 	                                 <c:if test="${c.id == columnInfoQueryDTO.rootColumnId }">open</c:if>
 	                                 ">

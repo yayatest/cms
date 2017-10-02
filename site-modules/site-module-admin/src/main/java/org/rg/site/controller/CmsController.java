@@ -18,6 +18,7 @@ import org.rg.site.cms.service.ArticleService;
 import org.rg.site.cms.service.ColumnInfoService;
 import org.rg.site.common.dto.AjaxResult;
 import org.rg.site.common.entity.PageModel;
+import org.rg.site.common.util.CmsConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,9 +54,9 @@ public class CmsController {
 		
 		ColumnInfoQueryDTO cDTO =new ColumnInfoQueryDTO();
 		cDTO.setLevel(ColumnInfo.LEVEL_ROOT);
-		List<ColumnInfo> rootCoulumnInfoList = this.columnInfoService.queryColumnInfoList(cDTO);
-		if(StringUtils.isBlank(rootColumnId) && rootCoulumnInfoList != null && rootCoulumnInfoList.size() > 0){
-			rootColumnId = rootCoulumnInfoList.get(0).getId();
+		List<ColumnInfo> rootColumnInfoList = this.columnInfoService.queryColumnInfoList(cDTO);
+		if(StringUtils.isBlank(rootColumnId) && rootColumnInfoList != null && rootColumnInfoList.size() > 0){
+			rootColumnId = rootColumnInfoList.get(0).getId();
 		}
 		ColumnInfoQueryDTO columnInfoQueryDTO = new ColumnInfoQueryDTO();
 		columnInfoQueryDTO.setRootColumnId(rootColumnId);
@@ -67,7 +68,7 @@ public class CmsController {
 		model.addAttribute("list", list);
 		model.addAttribute("columnInfoQueryDTO", columnInfoQueryDTO);
 		model.addAttribute(Constants.MENU_NAME, Constants.MENU_COLUMN_LIST);
-		model.addAttribute("rootCoulumnInfoList", rootCoulumnInfoList);
+		model.addAttribute("rootColumnInfoList", rootColumnInfoList);
 		
 		return "/cms/column_default_list";
 	}
@@ -108,14 +109,15 @@ public class CmsController {
 		String rootColumnId = request.getParameter("rootColumnId");
 		ColumnInfoQueryDTO columnInfoQueryDTO =new ColumnInfoQueryDTO();
 		columnInfoQueryDTO.setLevel(ColumnInfo.LEVEL_ROOT);
-		List<ColumnInfo> rootCoulumnInfoList = this.columnInfoService.queryColumnInfoList(columnInfoQueryDTO);
+		List<ColumnInfo> rootColumnInfoList = this.columnInfoService.queryColumnInfoList(columnInfoQueryDTO);
 		if(StringUtils.isNotBlank(id)){
 			columnInfo = this.columnInfoService.find(id);
 		}
 		model.addAttribute("columnInfo", columnInfo);
 		model.addAttribute("columnLevel", columnLevel);
 		model.addAttribute("rootColumnId", rootColumnId);
-		model.addAttribute("rootCoulumnInfoList", rootCoulumnInfoList);
+		model.addAttribute("rootColumnInfoList", rootColumnInfoList);
+		model.addAttribute("menuTypeList", CmsConstants.MENUTYPE.values());
 		return "/cms/dialog/column_default_edit";
 	}
 	
@@ -136,10 +138,15 @@ public class CmsController {
 			String columnLevel = request.getParameter("columnLevel");
 			String parentId = request.getParameter("parentId");
 			String orderNoStr = request.getParameter("orderNo");
+			String menuTypeStr = request.getParameter("menuType");
 		    Integer orderNo = null;
 		    if(StringUtils.isNotBlank(orderNoStr)){
 		    	orderNo = Integer.parseInt(orderNoStr);
 		    }
+			Integer menuType = 0;
+			if(StringUtils.isNotBlank(menuTypeStr)){
+				menuType = Integer.parseInt(menuTypeStr);
+			}
 			ColumnInfo columnInfo = null;
 			if(StringUtils.isNotBlank(id)){
 				columnInfo = this.columnInfoService.find(id);
@@ -156,6 +163,7 @@ public class CmsController {
 				}
 				columnInfo.setChannel(ColumnInfo.CHANNEL_PC);
 				columnInfo.setOrderNo(orderNo);
+				columnInfo.setMenuType(menuType);
 				columnInfo.setUpdateDate(new Date());
 			}else{
 				columnInfo = new ColumnInfo();
@@ -172,6 +180,7 @@ public class CmsController {
 				}
 				columnInfo.setChannel(ColumnInfo.CHANNEL_PC);
 				columnInfo.setOrderNo(orderNo);
+				columnInfo.setMenuType(menuType);
 				columnInfo.setCreateDate(new Date());
 				columnInfo.setDeleteFlag(ColumnInfo.DELETE_FLAG_NORMAL);
 			}
@@ -256,18 +265,19 @@ public class CmsController {
 		}
 		ColumnInfoQueryDTO columnInfoQueryDTO =new ColumnInfoQueryDTO();
 		columnInfoQueryDTO.setLevel(ColumnInfo.LEVEL_ROOT);
-		List<ColumnInfo> rootCoulumnInfoList = this.columnInfoService.queryColumnInfoList(columnInfoQueryDTO);
+		List<ColumnInfo> rootColumnInfoList = this.columnInfoService.queryColumnInfoList(columnInfoQueryDTO);
 		List<ColumnInfoDTO> columnInfoDTOList = new ArrayList<ColumnInfoDTO>();
 		
 		
-		if(rootCoulumnInfoList != null && rootCoulumnInfoList.size() > 0){
+		if(rootColumnInfoList != null && rootColumnInfoList.size() > 0){
 			if(StringUtils.isBlank(rootColumnId)){
-				rootColumnId = rootCoulumnInfoList.get(0).getId();
+				rootColumnId = rootColumnInfoList.get(0).getId();
 			}
-			for(ColumnInfo c:rootCoulumnInfoList){
+			for(ColumnInfo c:rootColumnInfoList){
 				ColumnInfoDTO columnInfoDTO = new ColumnInfoDTO();
 				columnInfoDTO.setId(c.getId());
 				columnInfoDTO.setName(c.getName());
+				columnInfoDTO.setMenuType(c.getMenuType());
 				
 				ColumnInfoQueryDTO childColumnInfoQueryDTO = new ColumnInfoQueryDTO();
 				childColumnInfoQueryDTO.setRootColumnId(c.getId());
@@ -279,6 +289,15 @@ public class CmsController {
 						ColumnInfoDTO rColumnInfoDTO = new ColumnInfoDTO();
 						rColumnInfoDTO.setId(rc.getId());
 						rColumnInfoDTO.setName(rc.getName());
+						rColumnInfoDTO.setMenuType(rc.getMenuType());
+						if(rc.getMenuType() == CmsConstants.MENUTYPE.PAGE.getId()){
+							ArticleQueryDTO articleQueryDTO = new ArticleQueryDTO();
+							articleQueryDTO.setColumnId(rc.getId());
+							List<Article> articleList = this.articleService.queryArticleList(articleQueryDTO);
+							if(articleList != null && !articleList.isEmpty()){
+								rColumnInfoDTO.setArticleId(articleList.get(0).getId());
+							}
+						}
 						rColumnInfoDTOList.add(rColumnInfoDTO);
 					}
 					columnInfoDTO.setChildColumnInfoList(rColumnInfoDTOList);
@@ -309,7 +328,7 @@ public class CmsController {
 		model.addAttribute("type", type);
 		model.addAttribute("statisMap", statisMap);
 		model.addAttribute("articleQueryDTO", articleQueryDTO);
-		model.addAttribute("rootCoulumnInfoList", rootCoulumnInfoList);
+		model.addAttribute("rootColumnInfoList", rootColumnInfoList);
 		model.addAttribute("columnInfoDTOList", columnInfoDTOList);
 		model.addAttribute(Constants.MENU_NAME, Constants.MENU_ARTICLE_LIST);
 		
@@ -337,12 +356,12 @@ public class CmsController {
 		}
 		ColumnInfoQueryDTO columnInfoQueryDTO =new ColumnInfoQueryDTO();
 		columnInfoQueryDTO.setLevel(ColumnInfo.LEVEL_ROOT);
-		List<ColumnInfo> rootCoulumnInfoList = this.columnInfoService.queryColumnInfoList(columnInfoQueryDTO);
+		List<ColumnInfo> rootColumnInfoList = this.columnInfoService.queryColumnInfoList(columnInfoQueryDTO);
 		
 		model.addAttribute("rootColumnId", rootColumnId);
 		model.addAttribute("columnId", columnId);
 		model.addAttribute("article", article);
-		model.addAttribute("rootCoulumnInfoList", rootCoulumnInfoList);
+		model.addAttribute("rootColumnInfoList", rootColumnInfoList);
 		model.addAttribute(Constants.MENU_NAME, Constants.MENU_ARTICLE_LIST);
 		
 		return "/cms/article_edit";

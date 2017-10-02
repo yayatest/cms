@@ -12,7 +12,11 @@ public class ColumnInfoDTO {
 	private String id;
 		
 	private String name;
-	
+
+	private Integer menuType;
+
+	private String articleId;
+
 	private List<ColumnInfoDTO> childColumnInfoList;
 
 	public String getId() {
@@ -38,5 +42,20 @@ public class ColumnInfoDTO {
 	public void setChildColumnInfoList(List<ColumnInfoDTO> childColumnInfoList) {
 		this.childColumnInfoList = childColumnInfoList;
 	}
- 
+
+	public Integer getMenuType() {
+		return menuType;
+	}
+
+	public void setMenuType(Integer menuType) {
+		this.menuType = menuType;
+	}
+
+	public String getArticleId() {
+		return articleId;
+	}
+
+	public void setArticleId(String articleId) {
+		this.articleId = articleId;
+	}
 }

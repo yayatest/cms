@@ -156,7 +156,12 @@
 	                                            <div class="i_default
 	                                             <c:if test="${rc.id == articleQueryDTO.columnId }">current</c:if>
 	                                            ">
-	                                                <a href="${ctx }/cms/article/list?rootColumnId=${c.id}&columnId=${rc.id}&type=${type}">${rc.name }</a>
+													<c:if test="${rc.menuType == 0 }">
+	                                                	<a href="${ctx }/cms/article/list?rootColumnId=${c.id}&columnId=${rc.id}&type=${type}">${rc.name }</a>
+													</c:if>
+													<c:if test="${rc.menuType == 1 }">
+														<a href="${ctx}/cms/article/edit?id=${rc.articleId}&rootColumnId=${c.id}&columnId=${rc.id}&menuType=${rc.menuType}">${rc.name }</a>
+													</c:if>
 	                                            </div>
 	                                        </div>
                                         </c:forEach>

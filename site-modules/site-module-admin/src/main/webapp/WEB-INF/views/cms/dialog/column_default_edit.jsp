@@ -72,7 +72,7 @@
 	                         <td>
 	                             <div class="t_opacitySelect ml10">
 						              <select name="parentId">
-						                   <c:forEach items="${rootCoulumnInfoList }" var="c">
+						                   <c:forEach items="${rootColumnInfoList }" var="c">
 						                	<option value="${c.id }"
 						                	   <c:if test="${c.id == rootColumnId }">selected</c:if>
 						                	>${c.name }</option>
@@ -82,6 +82,20 @@
 	                         </td>
 	                     </tr>
                      </c:if>
+					<tr>
+						<td class="l_title ">栏目类型:</td>
+						<td>
+							<div class="t_opacitySelect ml10">
+								<select name="menuType">
+									<c:forEach items="${menuTypeList }" var="c">
+										<option value="${c.id }"
+												<c:if test="${c.id == columnInfo.menuType }">selected</c:if>
+												>${c.name }</option>
+									</c:forEach>
+								</select>
+							</div>
+						</td>
+					</tr>
                      <tr>
 						<td class="l_title w200"> 序号:</td>
                          <td>

@@ -53,7 +53,7 @@
 					   <span>请选择</span>
 					   <select id="rootColumnId" name="rootColumnId" onChange = "selectLeafColumn()" style="min-width:200px">
 					        <option value="">请选择</option>
-		                   <c:forEach items="${rootCoulumnInfoList }" var="c">
+		                   <c:forEach items="${rootColumnInfoList }" var="c">
 		                	<option value="${c.id }"
 		                	   <c:if test="${c.id == rootColumnId }">selected="selected"</c:if>
 		                	>${c.name }</option>
@@ -201,8 +201,9 @@
 	</div>
   </div>
  </div>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/ueditor/editor_config.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/ueditor/editor_all.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/ueditor/ueditor.all.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="${pageContext.request.contextPath}/static/js/uploadify/jquery.uploadify.js"></script>
 	<script type="text/javascript">
 		//表单验证

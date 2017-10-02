@@ -55,7 +55,7 @@ jc.uiExtend("header", {
         /* orderNo 排序 */
         data = window.arraySortASC(data, "orderNo");
 
-        html += '<div class="navbar navbar-default navbar-fixed-top">';
+        html += '<div class="navbar navbar-default navbar-static-top">';
         html += '<div class="container">';
         html += '<div class="navbar-header page-scroll">';
         html += '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">';
@@ -177,7 +177,7 @@ jc.uiExtend("footer", {
         html += '<div class="col-md-4 col-sm-12">';
         html += '<h4>关于 本站</h4>';
         html += '<p class="mt20"><i class="icon"></i>地址：江苏省如皋市宁海路248-1号</p>'
-        html += '<p><i class="icon"></i>座机：0513-87922966</p>'
+        html += '<p><i class="icon">&#xe90e;</i>座机：0513-87922966</p>'
         html += '<p><i class="icon"></i>邮箱：zane_ma@126.com</p>'
         html += '</div>';
 

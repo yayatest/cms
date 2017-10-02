@@ -19,7 +19,7 @@
 	                  <span>一级栏目</span>
 		              <select name="rootColumnId">
 		              <option value="">一级栏目</option>
-		                   <c:forEach items="${rootCoulumnInfoList }" var="c">
+		                   <c:forEach items="${rootColumnInfoList }" var="c">
 		                	<option value="${c.id }"
 		                	   <c:if test="${c.id == columnInfoQueryDTO.rootColumnId }">selected</c:if>
 		                	>${c.name }</option>

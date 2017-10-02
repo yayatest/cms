@@ -106,7 +106,7 @@
                 var curDataId = curData.id;
                 var curDataName = curData.name;
                 var curDateCode = curData.code;
-
+<!--
                 if (curDateCode == "sy_ad") {
                     if (jc.hasUI("banner")) {
                         jc.ui.banner.filter("type=index", "setAttr", { "data-id": curDataId, "data-path": "cmsApiArticleList" });
@@ -114,7 +114,7 @@
                     }
                     continue;
                 }
-
+-->
                 var rule = window.indexLayoutRule.shift() || { titleClass: "", titleMore: true, col: "col-md-6", ui: "textList", uiClassName: "", pageSize: 6 };
 
                 var colMd = jc.createDOM({
@@ -132,7 +132,7 @@
                 });
                 colMd.appendChild(titleStyle1);
 
-
+<!--
                 if (rule.ui == "banner") {
                     var textList = jc.createDOM({
                         dataUi: "banner",
@@ -143,7 +143,7 @@
                     });
                     colMd.appendChild(textList);
                 }
-
+-->
                 if (rule.ui == "textList") {
                     var textList = jc.createDOM({
                         dataUi: "textList",
@@ -169,11 +169,14 @@
 </head>
 <body class="index">
 
+<!-- 显示图 -->
+<div data-ui="pageBanner" class="J_pageBanner"></div>
+
+<!-- 轮播图
+<div data-ui="banner" data-type="index" class="J_banner"></div>
+ -->
     <!-- 页头 -->
     <div id="header" data-ui="header" class="J_header"></div>
-
-    <!-- 轮播图 -->
-    <div data-ui="banner" data-type="index" class="J_banner"></div>
 
     <!-- 页面主体容器 -->
     <div class="container">

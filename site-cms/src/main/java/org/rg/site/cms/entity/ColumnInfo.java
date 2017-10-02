@@ -54,6 +54,9 @@ public class ColumnInfo extends BaseEntity {
 	//排序
 	private Integer orderNo;
 
+	//栏目类型
+	private Integer menuType;
+
 	@Column(length = 20)
 	public String getCode() {
 		return code;
@@ -127,4 +130,12 @@ public class ColumnInfo extends BaseEntity {
 		this.orderNo = orderNo;
 	}
 
+	@Column(name = "menu_type")
+	public Integer getMenuType() {
+		return menuType;
+	}
+
+	public void setMenuType(Integer menuType) {
+		this.menuType = menuType;
+	}
 }

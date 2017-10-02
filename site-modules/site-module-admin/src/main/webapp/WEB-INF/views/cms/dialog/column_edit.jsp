@@ -67,7 +67,7 @@
                              <div class="J_toolsBar fl">
                                  <div class="t_label ml10" style="width: 220px;">
 									<select data-placeholder="选择父栏目" class="chosen-select" name="parentId">
-										<c:forEach items="${rootCoulumnInfoList }" var="c">
+										<c:forEach items="${rootColumnInfoList }" var="c">
 											<c:set var="selected"/>
 											<c:if test="${columnInfo.parent.id eq c.id }">
 												<c:set var="selected" value="selected=\"selected\""/>
