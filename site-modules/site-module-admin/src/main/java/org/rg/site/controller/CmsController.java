@@ -413,6 +413,8 @@ public class CmsController {
 					articleType = 2;
 				}else if(articleTypeStr.equals("singlePage")){
 					articleType = 3;
+				}else if(articleTypeStr.equals("slideType")){
+					articleType = 4;
 				}
 			}
 			if(StringUtils.isNotBlank(id)){

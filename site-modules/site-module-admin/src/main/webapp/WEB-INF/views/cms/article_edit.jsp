@@ -84,7 +84,8 @@
 					     <label><input name="articleType" type="radio" value="contentType" <c:if test="${article.type == null || article.type == 0 }">checked="checked"</c:if> />内容文章</label> 
 						 <label><input name="articleType" type="radio" value="hrefType" <c:if test="${article.type == 1 }">checked="checked"</c:if>/>外链文章</label> 
 						 <label><input name="articleType" type="radio" value="adType" <c:if test="${article.type == 2 }">checked="checked"</c:if>/>广告位</label>
-						  <label><input name="articleType" type="radio" value="singlePage" <c:if test="${article.type == 3 }">checked="checked"</c:if>/>单页面</label>
+						 <label><input name="articleType" type="radio" value="singlePage" <c:if test="${article.type == 3 }">checked="checked"</c:if>/>单页面</label>
+						 <label><input name="articleType" type="radio" value="slideType" <c:if test="${article.type == 4 }">checked="checked"</c:if>/>循环播放</label>
 		              </div>
 					</div>
 				</td>
