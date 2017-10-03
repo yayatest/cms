@@ -38,7 +38,14 @@ jc.uiExtend("header", {
                 if (!curMenuData) return false;
 
                 for (var i = 0, l = curMenuData.length; i < l; i++) {
-                    $obj.append('<li><a onclick="window.router(\'menuAndTextlist\',{ rootColumnId :\'' + dataRootColumnId + '\' , columnListId : \'' + curMenuData[i].id + '\' })" href="javascript:;">' + curMenuData[i].name + '</a></li>');
+                    var subMenuData = curMenuData[i];
+                    var routerName = "";
+                    if(subMenuData.menuType == 0){
+                        routerName = "menuAndTextlist";
+                    } else if(subMenuData.menuType == 1){
+                        routerName = "menuAndDetail";
+                    }
+                    $obj.append('<li><a onclick="window.router(\'' + (routerName) + '\',{ rootColumnId :\'' + dataRootColumnId + '\' , columnListId : \'' + subMenuData.id + '\' })" href="javascript:;">' + subMenuData.name + '</a></li>');
                 }
 
             });
@@ -83,8 +90,10 @@ jc.uiExtend("header", {
             if (curDataName == "首页") {
                 routerName = "index";
             }
-            else {
+            else if(curData.menuType == 0){
                 routerName = "menuAndTextlist";
+            } else if(curData.menuType == 1){
+                routerName = "menuAndDetail";
             }
 
             var currentClass = "";
@@ -684,7 +693,9 @@ jc.uiExtend("detail", {
     setup: function (data) {
 
         var _this = this;
-
+        if(!data){
+            return;
+        }
         this.id = data.id;
 
         this.articleDate = jc.tools.formatDate(data.createDate, 'yyyy-MM-dd hh:mm:ss');

@@ -20,9 +20,14 @@
         if (curDataId == columnListId) {
             currentClass = "current";
         }
-
+        var routerName = "";
+        if(curData.menuType == 0){
+            routerName = "menuAndTextlist";
+        } else if(curData.menuType == 1){
+            routerName = "menuAndDetail";
+        }
         html += '<div class="l_item ' + (currentClass) + '">';
-        html += '<div class="m_default"><a onclick="window.router(\'menuAndTextlist\',{ rootColumnId:\'' + window.rootColumnId + '\',columnListId:\'' + curDataId + '\' },true);" href="javascript:;">' + (this.getString(curDataName)) + '</a></div>';
+        html += '<div class="m_default"><a onclick="window.router(\'' + (routerName) + '\',{ rootColumnId:\'' + window.rootColumnId + '\',columnListId:\'' + curDataId + '\' },true);" href="javascript:;">' + (this.getString(curDataName)) + '</a></div>';
         html += '</div>';
     }
 

@@ -143,7 +143,7 @@ public class CmsControllerService {
 	/**
 	 * 获取文章详情
 	 * @param request
-	 * @param model
+	 * @param response
 	 * @return
 	 */
 	@RequestMapping("/article/detail")
@@ -162,6 +162,18 @@ public class CmsControllerService {
 				article.setViewCount(article.getViewCount() == null ? 1 : article.getViewCount()+1);
 			    this.articleService.update(article);
 			}
+		}else{
+			String columnId = request.getParameter("columnListId");
+			if(StringUtils.isNotBlank(columnId)){
+				ArticleQueryDTO articleQueryDTO = new ArticleQueryDTO();
+				articleQueryDTO.setColumnId(columnId);
+				List<Article> articleList = this.articleService.queryArticleList(articleQueryDTO);
+				if(articleList != null && !articleList.isEmpty()){
+					article = articleList.get(0);
+					article.setType(-1);
+				}
+			}
+
 		}
 		ajaxResult.setSuccess(true);
 		ajaxResult.setData(article);
@@ -171,7 +183,7 @@ public class CmsControllerService {
 	/**
 	 * 获取下一篇文章详情
 	 * @param request
-	 * @param model
+	 * @param response
 	 * @return
 	 */
 	@RequestMapping("/article/next")
