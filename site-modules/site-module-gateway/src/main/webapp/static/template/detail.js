@@ -3,7 +3,7 @@
     if(!data){
         return html;
     }
-    if(data.type == -1){
+    if(data.type == 3){
         html += '<div class="d_main">';
         var content = this.getString(data.content);
         html += content;

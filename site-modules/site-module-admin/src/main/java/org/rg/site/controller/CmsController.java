@@ -411,6 +411,8 @@ public class CmsController {
 					articleType = 1;
 				}else if(articleTypeStr.equals("adType")){
 					articleType = 2;
+				}else if(articleTypeStr.equals("singlePage")){
+					articleType = 3;
 				}
 			}
 			if(StringUtils.isNotBlank(id)){

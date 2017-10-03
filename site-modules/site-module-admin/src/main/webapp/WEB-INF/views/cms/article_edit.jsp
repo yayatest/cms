@@ -83,7 +83,8 @@
 					  <div class="t_check ml10">
 					     <label><input name="articleType" type="radio" value="contentType" <c:if test="${article.type == null || article.type == 0 }">checked="checked"</c:if> />内容文章</label> 
 						 <label><input name="articleType" type="radio" value="hrefType" <c:if test="${article.type == 1 }">checked="checked"</c:if>/>外链文章</label> 
-						 <label><input name="articleType" type="radio" value="adType" <c:if test="${article.type == 2 }">checked="checked"</c:if>/>广告位</label> 
+						 <label><input name="articleType" type="radio" value="adType" <c:if test="${article.type == 2 }">checked="checked"</c:if>/>广告位</label>
+						  <label><input name="articleType" type="radio" value="singlePage" <c:if test="${article.type == 3 }">checked="checked"</c:if>/>单页面</label>
 		              </div>
 					</div>
 				</td>
@@ -316,7 +317,7 @@
 	   
 	   $('input[name="articleType"]').on('click', function(){
 			var val = $('input[name="articleType"]:checked').val();
-			if(val == 'contentType'){
+			if(val == 'contentType' || val == 'singlePage'){
 				$('#contentTr').show();
 				$("#hrefTr").hide();
 				$("#orderNoTr").hide();

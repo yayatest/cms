@@ -170,7 +170,6 @@ public class CmsControllerService {
 				List<Article> articleList = this.articleService.queryArticleList(articleQueryDTO);
 				if(articleList != null && !articleList.isEmpty()){
 					article = articleList.get(0);
-					article.setType(-1);
 				}
 			}
 
