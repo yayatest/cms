@@ -39,6 +39,9 @@ public class ArticleQueryDTO extends CommonQueryDTO {
 	//按发布日期排序样式：up为升序，down为降序
 	private String createDateSortCss;
 
+	//文章类型， 0: 内容文章, 1: 外链文章, 2: 广告位, 3: 单页面, 4: 循环播放页
+	private Integer articleType;
+
 	public String getType() {
 		return type;
 	}
@@ -119,4 +122,11 @@ public class ArticleQueryDTO extends CommonQueryDTO {
 		this.top = top;
 	}
 
+	public Integer getArticleType() {
+		return articleType;
+	}
+
+	public void setArticleType(Integer articleType) {
+		this.articleType = articleType;
+	}
 }

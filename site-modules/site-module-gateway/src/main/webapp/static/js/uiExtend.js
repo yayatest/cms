@@ -762,3 +762,16 @@ jc.uiExtend("detail", {
     }
 });
 
+jc.uiExtend("slider", {
+    id: null,
+    setup: function (data) {
+        if(!data){
+            return;
+        }
+        this.getTemplate(data, function (html) {
+            $(document.getElementById('sliderIframe').contentWindow.document).find("#slideItems").html(html);
+        });
+
+    }
+});
+

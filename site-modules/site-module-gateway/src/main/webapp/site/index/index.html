@@ -88,6 +88,17 @@
 
             }, false);
 
+            window.resource("cmsApiArticleSliders", {}, function (data) {
+                if (!data.length) {
+                    $("slider").hide();
+                    return false;
+                }
+                if (jc.hasUI("slider")) {
+                    jc.ui.slider.trigger("setup", data);
+                }
+
+            }, false);
+
         };
 
 
@@ -106,6 +117,9 @@
                 var curDataId = curData.id;
                 var curDataName = curData.name;
                 var curDateCode = curData.code;
+                if (curDateCode == "sy_slide") {
+                    continue;
+                }
 <!--
                 if (curDateCode == "sy_ad") {
                     if (jc.hasUI("banner")) {
@@ -163,6 +177,18 @@
             jc.uiUpdate();
 
         }
+/*
+        $(function(){
+            //初始化循环播放
+            window.resource("cmsApiArticleSliders", {}, function (data) {
+                if (!data.length) return false;
+                if (jc.hasUI("slider")) {
+                    jc.ui.slider.trigger("setup", data);
+                }
+
+            }, false);
+        })
+        */
     </script>
 
 
@@ -174,7 +200,7 @@
 
 <!-- 轮播图
 <div data-ui="banner" data-type="index" class="J_banner"></div>
- -->
+-->
     <!-- 页头 -->
     <div id="header" data-ui="header" class="J_header"></div>
 
@@ -184,12 +210,10 @@
         <div id="app" class="row">
 
         </div>
-
+        <div data-ui="slider" id="slider">
+            <iframe id="sliderIframe" src="../slide/xSlider.html" frameborder="0"  width="100%"></iframe>
+        </div>
     </div>
-    <div id="iframe-wrap">
-        <iframe id="iframe" src="../slide/xSlider.html" frameborder="0"  width="100%"></iframe>
-    </div>
-
 
     <!-- footer -->
     <div data-ui="footer" class="J_footer mt40"></div>

@@ -139,6 +139,32 @@ public class CmsControllerService {
 		ajaxResult.setSuccess(true);
 		return ajaxResult;
 	}
+
+	/**
+	 * 获取文章列表
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/article/sliders")
+	@ResponseBody
+	public AjaxResult getSliderList(HttpServletRequest request,HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+		response.setHeader("Access-Control-Max-Age", "3600");
+		response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+		AjaxResult ajaxResult = new AjaxResult();
+
+		List<Article> list = null;
+
+		ArticleQueryDTO articleQueryDTO = new ArticleQueryDTO();
+		articleQueryDTO.setArticleType(4);
+		articleQueryDTO.setDeleteFlag(Article.DELETE_FLAG_NORMAL);
+		list = this.articleService.queryArticleList(articleQueryDTO);
+		ajaxResult.setData(list);
+		ajaxResult.setSuccess(true);
+		return ajaxResult;
+	}
 	
 	/**
 	 * 获取文章详情

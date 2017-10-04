@@ -36,6 +36,12 @@ public class ArticleDaoImpl extends CustomBaseSqlDaoImpl implements ArticleDaoCu
         		 hql.append(" and t.columnInfo.id = :columnId ");
             	 map.put("columnId", articleQueryDTO.getColumnId());
         	 }
+
+			 if(articleQueryDTO.getArticleType() != null){
+				 hql.append(" and t.type = :type ");
+				 map.put("type", articleQueryDTO.getArticleType());
+			 }
+
         	 if(StringUtils.isNotBlank(articleQueryDTO.getTitle())){
         		 hql.append(" and t.title like  :title ");
         		 map.put("title", "%"+articleQueryDTO.getTitle()+"%");
@@ -90,6 +96,10 @@ public class ArticleDaoImpl extends CustomBaseSqlDaoImpl implements ArticleDaoCu
         		 hql.append(" and t.columnInfo.id = :columnId ");
         		 map.put("columnId", articleQueryDTO.getColumnId());
         	 }
+			 if(articleQueryDTO.getArticleType() != null){
+				 hql.append(" and t.type = :type ");
+				 map.put("type", articleQueryDTO.getArticleType());
+			 }
         	 if(StringUtils.isNotBlank(articleQueryDTO.getTitle())){
         		 hql.append(" and t.title like = :title ");
         		 map.put("title", "%"+articleQueryDTO.getTitle()+"%");
@@ -149,6 +159,7 @@ public class ArticleDaoImpl extends CustomBaseSqlDaoImpl implements ArticleDaoCu
     		hql.append(" and a.columnInfo.id = :columnInfoId ");
     		map.put("columnInfoId", currentArticleInfoDTO.getColumnId());
     	}
+
     	if(currentArticleInfoDTO.getArticleDate() != null){
     		hql.append(" and a.createDate < :date ");
     		map.put("date", currentArticleInfoDTO.getArticleDate());
