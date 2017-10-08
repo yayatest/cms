@@ -71,10 +71,10 @@ jc.uiExtend("header", {
         html += '<span class="icon-bar"></span>';
         html += '<span class="icon-bar"></span>';
         html += '</button>';
-        html += '<a class="navbar-brand" href="#page-top"><img class="img-responsive" src="../../static/images/logo.png" alt=""></a>';
+      //  html += '<a class="navbar-brand" href="#page-top"><img class="img-responsive" src="../../static/images/logo.png" alt=""></a>';
         html += '</div>';
         html += '<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">';
-        html += '<ul class="nav navbar-nav navbar-right">';
+        html += '<ul class="nav navbar-nav navbar-default">';
         html += '<li class="hidden active">';
         html += '<a href="#page-top"></a>';
         html += '</li>';
