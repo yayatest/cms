@@ -44,6 +44,7 @@
 
     <script type="text/javascript">
         window.indexLayoutRule = [
+
             {
                 titleClass: "",
                 titleMore: false,
@@ -87,7 +88,7 @@
 
 
             }, false);
-
+            /*
             window.resource("cmsApiArticleSliders", {}, function (data) {
                 if (!data.length) {
                     $("slider").hide();
@@ -95,6 +96,17 @@
                 }
                 if (jc.hasUI("slider")) {
                     jc.ui.slider.trigger("setup", data);
+                }
+
+            }, false);
+             */
+            window.resource("cmsApiArticleSliders", {}, function (data) {
+                if (!data.length) {
+                    $("cycle").hide();
+                    return false;
+                }
+                if (jc.hasUI("cycle")) {
+                    jc.ui.cycle.trigger("setup", data);
                 }
 
             }, false);
@@ -211,7 +223,10 @@
 
         </div>
         <div data-ui="slider" id="slider">
-            <iframe id="sliderIframe" src="../slide/xSlider.html" frameborder="0"  width="100%"></iframe>
+            <iframe id="sliderIframe" src="../slide/xSlider.html" frameborder="0"  width="100%" scrolling="no"></iframe>
+        </div>
+        <div data-ui="cycle" id="cycle" class="box-img" style="width:628px; height:160px; overflow:hidden">
+            <iframe id="cycleIframe" src="../slide/cycle.html" scrolling="no" width="900px" height="150px" frameborder="0"></iframe>
         </div>
     </div>
 

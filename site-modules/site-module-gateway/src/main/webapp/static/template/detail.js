@@ -1,4 +1,4 @@
-﻿jc.data.setup(function (data) {
+﻿jc.data.setup(function (data, isSinglePage) {
     var html = '';
     if(!data){
         return html;
@@ -30,12 +30,14 @@
         html += content;
         html += '</div>';
         html += '<div class="d_footer">';
-        html += '<div class="f_left">';
-        html += '<a data-type="prev" href="javascript:;">上一篇</a>';
-        html += '</div>';
-        html += '<div class="f_right">';
-        html += '<a data-type="next" href="javascript:;">下一篇</a>';
-        html += '</div>';
+        if(isSinglePage == false) {
+            html += '<div class="f_left">';
+            html += '<a data-type="prev" href="javascript:;">上一篇</a>';
+            html += '</div>';
+            html += '<div class="f_right">';
+            html += '<a data-type="next" href="javascript:;">下一篇</a>';
+            html += '</div>';
+        }
         html += '</div>';
 
     }

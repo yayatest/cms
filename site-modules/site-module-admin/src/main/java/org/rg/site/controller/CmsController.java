@@ -480,6 +480,10 @@ public class CmsController {
 		columnInfoQueryDTO.setIsRootColumnLike(false);
 		columnInfoQueryDTO.setRootColumnId(rootColumnId);
 		List<ColumnInfo> columnInfoList = this.columnInfoService.queryColumnInfoList(columnInfoQueryDTO);
+		ColumnInfo rootColumnInfo = this.columnInfoService.queryColumnInfoById(rootColumnId);
+		if(rootColumnInfo.getMenuType() == CmsConstants.MENUTYPE.PAGE.getId()){
+			columnInfoList.add(rootColumnInfo);
+		}
 		ajaxResult.setData(columnInfoList);
 		return ajaxResult;
 	}

@@ -1,0 +1,60 @@
+
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <style>
+        *,body{ margin:0; padding:0}
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body><table width="450" border="0" cellpadding="0" cellspacing="0">
+    <tbody><tr><td>
+        <div id="www_qpsh_com" style="overflow:hidden;height:165px;width:620px;color:#ff0000; font-size:12px; padding-left:5px; margin-top:8px; margin-left:2px; font-weight:normal "><table align="left" cellpadding="0" cellspace="0" border="0"><tbody><tr><td id="www_qpsh_com1" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" style="font-size:12px;">
+                <tbody><tr>
+                    <td>
+                        <a href="javascript:;" target="_blank" onclick="window.parent.window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee545db320003' });">
+                            <img border="0" width="150" height="100" hspace="12" style="margin-bottom:5px; margin-left:5px; margin-right:5px;" src="http://localhost:8080/site-module-admin/uploads/attach/17f61809-2c3e-4e40-9340-3bf3487db2df.jpg">
+                        </a><br><center>如皋市白浦中学</center>
+                    </td>
+                    <td>
+                        <a href="javascript:;" target="_blank" onclick="window.parent.window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee54516150002' });">
+                            <img border="0" width="150" height="100" hspace="12" style="margin-bottom:5px; margin-left:5px; margin-right:5px;" src="http://localhost:8080/site-module-admin/uploads/attach/4635b897-8f43-49c7-bdcf-53351f37ab8e.jpg">
+                        </a><br><center>如皋市城西中学</center>
+                    </td>
+                    <td>
+                        <a href="javascript:;" target="_blank" onclick="window.parent.window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee54421d80001' });">
+                            <img border="0" width="150" height="100" hspace="12" style="margin-bottom:5px; margin-left:5px; margin-right:5px;" src="http://localhost:8080/site-module-admin/uploads/attach/25c75e3f-1b0c-43f5-9763-e84b91bc3394.jpg">
+                        </a><br><center>上海东方明珠</center>
+                    </td>
+                    <td>
+                        <a href="javascript:;" target="_blank" onclick="window.parent.window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee543b4d10000' });">
+                            <img border="0" width="150" height="100" hspace="12" style="margin-bottom:5px; margin-left:5px; margin-right:5px;" src="http://localhost:8080/site-module-admin/uploads/attach/2f887444-50c6-43a2-a025-c5d3a3599979.jpg">
+                        </a><br><center>如皋市搬经中学</center>
+                    </td>
+                    <td>
+                        <a href="javascript:;" target="_blank" onclick="window.parent.window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee11b5a015ee1cce6da0001' });">
+                            <img border="0" width="150" height="100" hspace="12" style="margin-bottom:5px; margin-left:5px; margin-right:5px;" src="http://localhost:8080/site-module-admin/uploads/attach/205c1646-18de-43cf-b4b2-0de36926a32b.jpg">
+                        </a><br><center>如皋市绿阳奥数培训中心</center>
+                    </td>
+                </tr>
+                </tbody></table>
+        </td><td id="www_qpsh_com2" valign="top"></td></tr></tbody></table></div>
+        <script>
+            $(function(){
+                var speed=20;
+                $("#www_qpsh_com2").html($("#www_qpsh_com1").html());
+                function Marquee(){
+                    var sl = $("#www_qpsh_com").scrollLeft();
+                    if($("#www_qpsh_com2").outerWidth(false)-$("#www_qpsh_com").scrollLeft()<=0){
+
+                        $("#www_qpsh_com").scrollLeft(sl - $("#www_qpsh_com1").outerWidth(false));
+                    }else{
+                        $("#www_qpsh_com").scrollLeft(sl + 1);
+                    }
+                }
+                var MyMar=setInterval(Marquee,speed)
+                $("#www_qpsh_com").mouseover(function() {clearInterval(MyMar);});
+                $("#www_qpsh_com").mouseout(function() {MyMar=setInterval(Marquee,speed);});
+            });
+        </script>
+    </td></tr></tbody></table></body></html>

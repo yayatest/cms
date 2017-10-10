@@ -46,11 +46,11 @@
 
                 window.resource("cmsApiArticleDetail", {
                     articleId: articleId,
-                    columnListId: columnListId
+                    columnId: columnListId
                 }, function (data) {
 
                     if (jc.hasUI("detail")) {
-                        jc.ui.detail.trigger("setup", data);
+                        jc.ui.detail.trigger("setup", data, false);
                     }
 
                 });

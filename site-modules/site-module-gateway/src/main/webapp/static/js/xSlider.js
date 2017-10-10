@@ -13,6 +13,7 @@
  autoscroll:1000//自动移动间隔时间     默认null不自动移动;
  });
  */
+//document.write('<script language="javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>');
 jQuery.extend(jQuery.easing,{
     easeInSine: function (x, t, b, c, d) {
         return -c * Math.cos(t/d * (Math.PI/2)) + c + b;

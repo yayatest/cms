@@ -189,7 +189,7 @@ public class CmsControllerService {
 			    this.articleService.update(article);
 			}
 		}else{
-			String columnId = request.getParameter("columnListId");
+			String columnId = request.getParameter("columnId");
 			if(StringUtils.isNotBlank(columnId)){
 				ArticleQueryDTO articleQueryDTO = new ArticleQueryDTO();
 				articleQueryDTO.setColumnId(columnId);

@@ -93,7 +93,7 @@ jc.uiExtend("header", {
             else if(curData.menuType == 0){
                 routerName = "menuAndTextlist";
             } else if(curData.menuType == 1){
-                routerName = "menuAndDetail";
+                routerName = "singlePage";
             }
 
             var currentClass = "";
@@ -104,21 +104,22 @@ jc.uiExtend("header", {
 
             html += '<li data-current="' + (curDataId) + '" class="dropdown ' + (currentClass) + '">';
             html += '<a href="javascript:;" onclick="window.router(\'' + (routerName) + '\',{rootColumnId:\'' + (curDataId) + '\'},true)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + (curDataName) + '<span class="caret"></span><span class="underline"></span></a>';
+            if(curData.menuType == 0) {
+                html += '<ul data-root-column-id="' + curDataId + '" data-level="1" class="dropdown-menu" ' + (i == 0 ? 'style="display:none;"' : "") + '>';
 
-            html += '<ul data-root-column-id="' + curDataId + '" data-level="1" class="dropdown-menu" ' + (i == 0 ? 'style="display:none;"' : "") + '>';
-
-            /*
-            html += '<li><a href="javascript:;">学校简介</a></li>';
-            html += '<li><a href="javascript:;">学校领导</a></li>';
-            html += '<li><a href="javascript:;">校长寄语</a></li>';
-            html += '<li><a href="javascript:;">组织机构</a></li>';
-            html += '<li><a href="javascript:;">办学成就</a></li>';
-            html += '<li><a href="javascript:;">领导关怀</a></li>';
-            html += '<li><a href="javascript:;">校园风光</a></li>';
-            */
+                /*
+                 html += '<li><a href="javascript:;">学校简介</a></li>';
+                 html += '<li><a href="javascript:;">学校领导</a></li>';
+                 html += '<li><a href="javascript:;">校长寄语</a></li>';
+                 html += '<li><a href="javascript:;">组织机构</a></li>';
+                 html += '<li><a href="javascript:;">办学成就</a></li>';
+                 html += '<li><a href="javascript:;">领导关怀</a></li>';
+                 html += '<li><a href="javascript:;">校园风光</a></li>';
+                 */
 
 
-            html += '</ul>';
+                html += '</ul>';
+            }
 
             html += '</li>';
 
@@ -769,9 +770,21 @@ jc.uiExtend("slider", {
             return;
         }
         this.getTemplate(data, function (html) {
-            $(document.getElementById('sliderIframe').contentWindow.document).find("#slideItems").html(html);
+            $(document.getElementById('sliderIframe').contentWindow.document).find("body").html(html);
         });
 
+    }
+});
+
+jc.uiExtend("cycle", {
+    id: null,
+    setup: function (data) {
+        if(!data){
+            return;
+        }
+        this.getTemplate(data, function (html) {
+            $(document.getElementById('cycleIframe').contentWindow.document).find("body").html(html);
+        });
     }
 });
 

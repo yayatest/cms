@@ -3,49 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <style type="text/css">
-        *{margin:0;padding:0;list-style-type:none;}
-        a,img{border:0;}
-        body{font:12px/180% Arial, Helvetica, sans-serif,"宋体";}
-        a.abtn{display:block;height:130px;width:17px;overflow:hidden;background:url(../../static/images/arrow3.png) no-repeat 0px 50%;}
-        a.aleft{float:left;}
-        a.agrayleft{cursor:default;background-position:-34px 50%;}
-        a.aright{float:right;background-position:-17px 50%;}
-        a.agrayright{cursor:default;background-position:-51px 50%;}
-
-        .scrolllist{width:742px;height:204px;margin:0 auto;}
-        .scrolllist .imglist_w{width:704px;height:204px;overflow:hidden;float:left;position:relative;/*必要元素*/}
-        .scrolllist .imglist_w ul{width:20000px;position:absolute;left:0px;top:0px;}
-        .scrolllist .imglist_w li{width:156px;float:left;padding:0 10px;}
-        .scrolllist .imglist_w li img{padding:2px;border:solid 1px #ddd;}
-        .scrolllist .imglist_w li a{color:#3366cc;text-decoration:none;float:left;}
-        .scrolllist .imglist_w li a:hover img{filter:alpha(opacity=86);-moz-opacity:0.86;opacity:0.86;}
-        .scrolllist .imglist_w li p{height:48px;line-height:24px;overflow:hidden;float:left;}
-    </style>
+    <link rel="stylesheet" href="../../static/css/xSlider.css" />
 </head>
 <body>
-<div class="scrolllist" id="s1">
-    <a class="abtn aleft" href="#left" title="左移"></a>
-    <div class="imglist_w" id="slideItems">
-        <!--
-        <ul><li><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee545db320003' });" href="javascript:;" title="如皋市白浦中学"><img width="150" height="150" alt="如皋市白浦中学" src="http://localhost:8080/site-module-admin/uploads/attach/92b9695a-ea31-4902-8138-3fcca65d27ef.jpg" /></a><p><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee545db320003' });" href="javascript:;" title="如皋市白浦中学">如皋市白浦中学</a></p></li><li><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee54516150002' });" href="javascript:;" title="如皋市城西中学"><img width="150" height="150" alt="如皋市城西中学" src="http://localhost:8080/site-module-admin/uploads/attach/8ec86ebb-905b-4d3f-9373-de248d13fd5e.JPG" /></a><p><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee54516150002' });" href="javascript:;" title="如皋市城西中学">如皋市城西中学</a></p></li><li><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee54421d80001' });" href="javascript:;" title="上海东方明珠"><img width="150" height="150" alt="上海东方明珠" src="http://localhost:8080/site-module-admin/uploads/attach/71ee5289-2170-4326-a60d-5292a71bc455.jpg" /></a><p><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee54421d80001' });" href="javascript:;" title="上海东方明珠">上海东方明珠</a></p></li><li><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee543b4d10000' });" href="javascript:;" title="如皋市搬经中学"><img width="150" height="150" alt="如皋市搬经中学" src="http://localhost:8080/site-module-admin/uploads/attach/c887a676-9916-4185-8be3-7fce362d7f8e.jpg" /></a><p><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee541f2015ee543b4d10000' });" href="javascript:;" title="如皋市搬经中学">如皋市搬经中学</a></p></li><li><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee11b5a015ee1cce6da0001' });" href="javascript:;" title="如皋市绿阳奥数培训中心"><img width="150" height="150" alt="如皋市绿阳奥数培训中心" src="http://localhost:8080/site-module-admin/uploads/attach/511cc308-8e0c-4309-bc6d-c170cdb66959.jpg" /></a><p><a target="_blank" onclick="window.router('menuAndDetail',{ rootColumnId:'4028821e5b7a0971015b7a0a1cbf0000',columnListId:'8a9480a65ee11b5a015ee1c9694f0000',articleId:'8a9480a65ee11b5a015ee1cce6da0001' });" href="javascript:;" title="如皋市绿阳奥数培训中心">如皋市绿阳奥数培训中心</a></p></li></ul>
-        -->
-    </div>
-    <a class="abtn aright" href="#right" title="右移"></a>
-</div><!--scrolllist end-->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="../../static/js/xSlider.js"></script>
-<script type="text/javascript">
-    $(function(){
-        //默认状态下左右滚动
-        $("#s1").xslider({
-            unitdisplayed:4,
-            movelength:1,
-            unitlen:176,
-            autoscroll:2500
-        });
-    })
-</script>
-
 </body>
 </html>

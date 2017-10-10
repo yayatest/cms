@@ -39,8 +39,8 @@ jc.require.success = function () {
 window.routerList = {
     index: window.root + "index/index.html",
     menuAndTextlist: window.root + "menuAndTextlist/menuAndTextlist.html",
-    menuAndDetail: window.root + "menuAndDetail/menuAndDetail.html"
-
+    menuAndDetail: window.root + "menuAndDetail/menuAndDetail.html",
+    singlePage: window.root + "singlePage/singlePage.html"
 }
 
 
