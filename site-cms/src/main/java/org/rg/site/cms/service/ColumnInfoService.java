@@ -32,5 +32,8 @@ public class ColumnInfoService extends CommonService< ColumnInfo,String > {
            return this.columnInfoDao.queryColumnInfoList(columnInfoQueryDTO);
     }
 
+    public ColumnInfo queryColumnInfoById(String Id) {
+        return this.find(Id);
+    }
 
 }
