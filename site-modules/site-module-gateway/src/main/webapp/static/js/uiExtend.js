@@ -486,7 +486,9 @@ jc.uiExtend("textList", {
                 current_page: _this.ajaxData.currentPage - 1
             });
             if (data.list.length < 1) {
-                this.$page.hide();
+                if(this.$page) {
+                    this.$page.hide();
+                }
             }
         });
 

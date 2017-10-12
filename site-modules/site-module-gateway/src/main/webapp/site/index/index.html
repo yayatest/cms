@@ -44,7 +44,6 @@
 
     <script type="text/javascript">
         window.indexLayoutRule = [
-
             {
                 titleClass: "",
                 titleMore: false,
@@ -59,15 +58,15 @@
                 col: "col-md-4",
                 ui: "textList",
                 uiClassName: "",
-                pageSize: 6
+                pageSize: 8
 
             }, {
                 titleClass: "",
                 titleMore: true,
                 col: "col-md-4",
                 ui: "textList",
-                uiClassName: "showImg",
-                pageSize: 3
+                uiClassName: "",
+                pageSize: 8
             }
 
 
@@ -98,8 +97,8 @@
                     jc.ui.slider.trigger("setup", data);
                 }
 
-            }, false);
-             */
+            });
+
             window.resource("cmsApiArticleSliders", {}, function (data) {
                 if (!data.length) {
                     $("cycle").hide();
@@ -109,8 +108,8 @@
                     jc.ui.cycle.trigger("setup", data);
                 }
 
-            }, false);
-
+            });
+             */
         };
 
 
@@ -128,37 +127,41 @@
                 var curData = data[i];
                 var curDataId = curData.id;
                 var curDataName = curData.name;
-                var curDateCode = curData.code;
-                if (curDateCode == "sy_slide") {
+                var curDataCode = curData.code;
+                if (curDataCode == "sy_slide") {
                     continue;
                 }
-<!--
-                if (curDateCode == "sy_ad") {
+
+                if (curDataCode == "sy_ad") {
                     if (jc.hasUI("banner")) {
                         jc.ui.banner.filter("type=index", "setAttr", { "data-id": curDataId, "data-path": "cmsApiArticleList" });
                         jc.ui.banner.filter("type=index", "update");
                     }
                     continue;
                 }
--->
-                var rule = window.indexLayoutRule.shift() || { titleClass: "", titleMore: true, col: "col-md-6", ui: "textList", uiClassName: "", pageSize: 6 };
+                /**/
+                var rule = window.indexLayoutRule.shift() || { titleClass: "", titleMore: true, col: "col-md-6", ui: "textList", uiClassName: "", pageSize: 8 };
 
                 var colMd = jc.createDOM({
                     classname: rule.col
                 });
-
+                var innerBoxDivClass = rule.ui == "banner" ? "indexBanner" : "indexTextList";
+                var innerBoxDiv = jc.createDOM({
+                    classname: innerBoxDivClass
+                });
+                colMd.appendChild(innerBoxDiv);
                 var titleStyle1 = jc.createDOM({
                     dataUi: "titleStyle1",
-                    classname: "J_titleStyle1 " + rule.titleClass,
+                    classname: "J_titleStyle1 indexTitle" + rule.titleClass,
                     dataId: curDataId,
                     dataPath: "cmsApiArticleList",
                     dataTitleText: curDataName,
                     dataMoreText: rule.titleMore ? "更多>>" : "",
                     dataMoreHref: "javascript: window.router('menuAndTextlist',{ rootColumnId : '" + window.rootColumnId + "' , columnListId : '" + curDataId + "' });"
                 });
-                colMd.appendChild(titleStyle1);
+                innerBoxDiv.appendChild(titleStyle1);
 
-<!--
+
                 if (rule.ui == "banner") {
                     var textList = jc.createDOM({
                         dataUi: "banner",
@@ -167,9 +170,9 @@
                         dataPath: "cmsApiArticleList",
                         dataPageSize: 10
                     });
-                    colMd.appendChild(textList);
+                    innerBoxDiv.appendChild(textList);
                 }
--->
+                /**/
                 if (rule.ui == "textList") {
                     var textList = jc.createDOM({
                         dataUi: "textList",
@@ -178,10 +181,13 @@
                         dataPath: "cmsApiArticleList",
                         dataPageSize: rule.pageSize
                     });
-                    colMd.appendChild(textList);
+                    innerBoxDiv.appendChild(textList);
                 }
 
-
+                var innerBoxBottomDiv = jc.createDOM({
+                    classname: "innerBoxBottom"
+                });
+                colMd.appendChild(innerBoxBottomDiv);
                 app.appendChild(colMd);
 
             }
@@ -215,19 +221,22 @@
 -->
     <!-- 页头 -->
     <div id="header" data-ui="header" class="J_header"></div>
-
+    <div style="height:10px"></div>
     <!-- 页面主体容器 -->
     <div class="container">
 
         <div id="app" class="row">
 
         </div>
-        <div data-ui="slider" id="slider">
-            <iframe id="sliderIframe" src="../slide/xSlider.html" frameborder="0"  width="100%" scrolling="no"></iframe>
-        </div>
-        <div data-ui="cycle" id="cycle" class="box-img" style="width:628px; height:160px; overflow:hidden">
-            <iframe id="cycleIframe" src="../slide/cycle.html" scrolling="no" width="900px" height="150px" frameborder="0"></iframe>
-        </div>
+        <!--
+                <div data-ui="slider" id="slider">
+                    <iframe id="sliderIframe" src="../slide/xSlider.html" frameborder="0"  width="100%" scrolling="no"></iframe>
+                </div>
+
+                <div data-ui="cycle" id="cycle" class="box-img" style="width:628px; height:160px; overflow:hidden">
+                    <iframe id="cycleIframe" src="../slide/cycle.html" scrolling="no" width="900px" height="150px" frameborder="0"></iframe>
+                </div>
+-->
     </div>
 
     <!-- footer -->

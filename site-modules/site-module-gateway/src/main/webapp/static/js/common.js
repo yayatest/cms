@@ -713,6 +713,9 @@
         count: 0,
         script: null,
         setup: function (str) {
+            //if(this.count < 1){
+            //    return;
+            //}
             this.queue[this.count - 1].success(str);
 
             /* 销毁 递归  */

@@ -229,3 +229,10 @@ a.abtn.default { background-color: #8d1d2d; }
 .box-img ul{ margin-top:20px;}
 .box-img ul li{ float:left}
 .box-img ul li img{ width:140px; height:120px; margin-right:8px; margin-left:8px;}
+
+.indexTextList {border:2px solid #F0F0F0; height:350px}
+.indexBanner{}
+.innerBoxBottom{height:3px}
+/*
+.indexTitle{background-image: url(../images/indexTitle.png);}
+*/
